@@ -3,6 +3,9 @@ var browserSync = require('browser-sync');
 var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cp          = require('child_process');
+var ncp         = require('ncp').ncp;
+
+ncp.limit = 16;
 
 var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
@@ -12,10 +15,17 @@ var messages = {
 /**
  * Build the Jekyll Site
  */
-gulp.task('jekyll-build', function (done) {
+gulp.task('build', function (done) {
     browserSync.notify(messages.jekyllBuild);
     return cp.spawn( jekyll , ['build'], {stdio: 'inherit'})
-        .on('close', done);
+        .on('close', function () {
+            ncp('_site', 'dist', function (err) {
+                if (err) {
+                    return console.error(err);
+                }
+                done();
+            });
+        });
 });
 
 /**
