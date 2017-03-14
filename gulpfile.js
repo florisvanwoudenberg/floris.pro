@@ -21,7 +21,7 @@ gulp.task('build', function (done) {
         .on('close', function () {
             ncp('_site', 'dist', function (err) {
                 if (err) {
-                    return console.error(err);
+                    // return console.error(err);
                 }
                 done();
             });
@@ -31,14 +31,14 @@ gulp.task('build', function (done) {
 /**
  * Rebuild Jekyll & do page reload
  */
-gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+gulp.task('jekyll-rebuild', ['build'], function () {
     browserSync.reload();
 });
 
 /**
- * Wait for jekyll-build, then launch the Server
+ * Wait for build, then launch the Server
  */
-gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
+gulp.task('browser-sync', ['sass', 'build'], function() {
     browserSync({
         server: {
             baseDir: '_site'
