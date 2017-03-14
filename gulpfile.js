@@ -1,9 +1,10 @@
 var gulp        = require('gulp');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cp          = require('child_process');
 var ncp         = require('ncp').ncp;
+var sassGlob    = require('gulp-sass-glob');
 
 ncp.limit = 16;
 
@@ -19,11 +20,12 @@ gulp.task('build', function (done) {
     browserSync.notify(messages.jekyllBuild);
     return cp.spawn( jekyll , ['build'], {stdio: 'inherit'})
         .on('close', function () {
+            done();
             ncp('_site', 'dist', function (err) {
                 if (err) {
-                    // return console.error(err);
+                    return console.error(err);
                 }
-                done();
+
             });
         });
 });
@@ -39,7 +41,7 @@ gulp.task('jekyll-rebuild', ['build'], function () {
  * Wait for build, then launch the Server
  */
 gulp.task('browser-sync', ['sass', 'build'], function() {
-    browserSync({
+    browserSync.init({
         server: {
             baseDir: '_site'
         }
@@ -50,15 +52,12 @@ gulp.task('browser-sync', ['sass', 'build'], function() {
  * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
  */
 gulp.task('sass', function () {
-    return gulp.src('_scss/main.scss')
-        .pipe(sass({
-            includePaths: ['scss'],
-            onError: browserSync.notify
-        }))
-        .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+    return gulp.src('_scss/**/*.scss')
+        .pipe(sassGlob())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(prefix(['> 1%', 'IE > 11'], { cascade: true }))
         .pipe(gulp.dest('_site/css'))
-        .pipe(browserSync.reload({stream:true}))
-        .pipe(gulp.dest('css'));
+        .pipe(browserSync.stream());
 });
 
 /**
@@ -66,8 +65,8 @@ gulp.task('sass', function () {
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
-    gulp.watch('_scss/*.scss', ['sass']);
-    gulp.watch(['*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
+    gulp.watch('_scss/**/*.scss', ['sass']);
+    gulp.watch(['*.html', '_layouts/*.html', '_posts/*', 'js/**/*'], ['jekyll-rebuild']);
 });
 
 /**

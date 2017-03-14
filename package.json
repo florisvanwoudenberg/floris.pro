@@ -1,32 +1,20 @@
 {
-  "name": "browser-sync-jekyll",
+  "name": "floris-pro",
   "version": "0.0.0",
-  "description": "A starter project including full setup for Jekyll, GulpJS, SASS & BrowserSync",
+  "description": "floris.pro Jekyll site",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Shane Osbourne",
-  "license": "ISC",
+  "author": "Floris van Woudenberg",
   "devDependencies": {
-    "browser-sync": "^1.3.7",
+    "browser-sync": "^2.18.8",
+    "browser-sync-ui": "^0.6.3",
     "gulp": "^3.8.8",
     "gulp-autoprefixer": "1.0.0",
     "gulp-sass": "^2.1.0",
-    "ncp": "^2.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shakyShane/jekyll-gulp-sass-browser-sync.git"
-  },
-  "keywords": [
-    "jekyll",
-    "gulp",
-    "sass",
-    "browsersync"
-  ],
-  "bugs": {
-    "url": "https://github.com/shakyShane/jekyll-gulp-sass-browser-sync/issues"
-  },
-  "homepage": "https://github.com/shakyShane/jekyll-gulp-sass-browser-sync"
+    "gulp-sass-glob": "^1.0.8",
+    "ncp": "^2.0.0",
+    "singularitygs": "^1.7.1"
+  }
 }

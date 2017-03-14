@@ -1,0 +1,24 @@
+{
+  "name": "floris-pro",
+  "description": "floris.pro Jekyll site",
+  "main": "gulpfile.js",
+  "authors": [
+    "Floris van Woudenberg"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/florisvanwoudenberg/floris.pro",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "jquery.hotkeys": "jeresig/jquery.hotkeys#^0.2.0"
+  }
+}

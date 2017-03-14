@@ -1,6 +1,4 @@
-@import "reset";
-@import "syntax";
+@import '../node_modules/singularitygs/stylesheets/_singularitygs';
 
-body {
-    background: white;
-}
+@import 'variables/**/*';
+@import 'components/**/*';
