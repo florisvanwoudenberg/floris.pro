@@ -2,3 +2,4 @@ _site
 .idea
 node_modules
 dist
+app/bower_components
