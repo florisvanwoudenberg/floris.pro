@@ -15,12 +15,12 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    }
   }
-
+}
 
 html.has-grid-overlay-enabled {
   body:after {
     opacity: .5;
   }
 }
+ 
