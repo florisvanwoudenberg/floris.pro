@@ -8,7 +8,6 @@ body {
     z-index: 1001;
     position: fixed;
     opacity: 0;
-    transition: $speed $easing;
     width: 100vw;
     max-width: $max-width;
     height: 100vh;
