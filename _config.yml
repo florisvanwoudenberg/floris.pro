@@ -1,4 +1,38 @@
-name: Your New Jekyll Site
-markdown: redcarpet
+name: Floris van Woudenberg
 highlighter: pygments # or rouge or null
 exclude: ["node_modules", "gulpfile.js", "package.json"]
+
+subtitle: Eindbaas
+email: floris@studiofonkel.nl
+description: floris.pro Jekyll website.
+baseurl: ""
+url: ""
+author: Floris van Woudenberg
+street_address: Arnhemseweg 6
+city: Amersfoort
+state: Utrecht
+zip_code: 3817 CH
+country: Nederland
+phone: (0)33 7370019
+
+# Homepage tiles
+tiles-source: posts # accepts "posts" or "pages"
+tiles-count: 6
+
+# Social settings
+500px_url:
+facebook_url:
+github_url: https://github.com/florisvanwoudenberg
+gitlab_url: 
+googleplus_url: 
+instagram_url: 
+linkedin_url: https://www.linkedin.com/in/florisvanwoudenberg/
+pinterest_url:
+slack_url:
+twitter_url:
+
+# Build settings
+markdown: kramdown
+
+sass:
+  style: compressed
