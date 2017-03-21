@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    forty_jekyll_theme (1.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -47,6 +52,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1.12)
+  forty_jekyll_theme!
   jekyll (~> 3)
   pygments.rb
   redcarpet
