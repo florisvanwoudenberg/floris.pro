@@ -9,7 +9,7 @@ process.setMaxListeners(0);
 global.paths = {
     'html': './app/**/*.html',
     'scss': './app/_sass/**/*.scss',
-    'css': './dist/css',
+    'css': './dist/assets/css',
     'js': ['./app/**/*.js', '!./app/lib'],
     'src': './app',
     'dist': './dist'
