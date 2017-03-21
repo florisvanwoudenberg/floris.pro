@@ -2,9 +2,9 @@ name: Floris van Woudenberg
 highlighter: pygments # or rouge or null
 exclude: ["node_modules", "gulpfile.js", "package.json"]
 
-subtitle: Eindbaas
+subtitle: Floris.pro
 email: floris@studiofonkel.nl
-description: floris.pro Jekyll website.
+description: Persoonlijk blog.
 baseurl: ""
 url: ""
 author: Floris van Woudenberg
